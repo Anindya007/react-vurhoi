@@ -4,15 +4,19 @@ import PropTypes from "prop-types";
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.COUNT = 1;
+    this.state = { COUNT: 1 };
   }
 
   render() {
     return (
       <div>
-        <h4>Multiples of: OF</h4>
-        <p>OF*COUNT</p>
-        <button>Next Multiple</button>
+        <h4>Multiples of: {this.props.OF}</h4>
+        <p>
+          {this.props.OF}*{this.state.COUNT}
+        </p>
+        <button onClick={e => this.setState({ COUNT: this.state.COUNT + 1 })}>
+          Next Multiple
+        </button>
       </div>
     );
   }
